@@ -3,6 +3,6 @@ POST http://127.0.0.1:8000/write
 Content-Type: application/json
 
 {
-  "input": "Was habe ich vorher gefragt?",
+  "input": "How old was she when she became vice president?",
   "agent_scratchpad": []
 }
