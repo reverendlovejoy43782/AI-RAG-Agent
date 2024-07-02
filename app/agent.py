@@ -16,6 +16,10 @@ from langchain.prompts import MessagesPlaceholder
 from langchain.agents.format_scratchpad import format_to_openai_functions
 from langchain.schema.agent import AgentFinish
 from langchain.schema.runnable import RunnablePassthrough
+from langchain.agents import AgentExecutor
+from langchain.memory import ConversationBufferMemory
+
+
 
 
 
@@ -60,12 +64,16 @@ functions = [format_tool_to_openai_function(f) for f in tools]
 model = ChatOpenAI(temperature=0).bind(functions=functions)
 prompt = ChatPromptTemplate.from_messages([
     ("system", "You are helpful but sassy assistant"),
+    MessagesPlaceholder(variable_name="chat_history"),
     ("user", "{input}"),
     MessagesPlaceholder(variable_name="agent_scratchpad")
 ])
 chain = prompt | model | OpenAIFunctionsAgentOutputParser()
 
-
+# Define the agent_chain with RunnablePassthrough
+agent_chain = RunnablePassthrough.assign(
+    agent_scratchpad= lambda x: format_to_openai_functions(x["intermediate_steps"])
+) | prompt | model | OpenAIFunctionsAgentOutputParser()
 
 # Define the run_agent function
 def run_agent(user_input):
@@ -82,3 +90,9 @@ def run_agent(user_input):
         }[result.tool]
         observation = tool.run(result.tool_input)
         intermediate_steps.append((result, observation))
+
+
+memory = ConversationBufferMemory(return_messages=True,memory_key="chat_history")
+
+# Create the AgentExecutor
+agent_executor = AgentExecutor(agent=agent_chain, tools=tools, verbose=True, memory=memory)
