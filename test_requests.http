@@ -1,0 +1,8 @@
+### Test request
+POST http://127.0.0.1:8000/write
+Content-Type: application/json
+
+{
+  "input": "Antwort auf bayerisch: wer bist du?",
+  "agent_scratchpad": []
+}
