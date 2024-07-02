@@ -41,7 +41,7 @@ def search_tavily(query: str) -> str:
     formatted_results = []
     for result in results[:3]:
         title = result.get("title", "No title")
-        #url = result.get("url", "No URL")
+        url = result.get("url", "No URL")
         content = result.get("content", "No content available")
         formatted_results.append(f"Title: {title}\nContent: {content}")
 
