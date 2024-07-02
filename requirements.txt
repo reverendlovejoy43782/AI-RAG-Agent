@@ -2,10 +2,14 @@ fastapi
 uvicorn
 langchain
 langchain_community
+tavily-python
 openai
 requests
 pydantic
 python-dotenv
 wikipedia
+
+
+
 
 

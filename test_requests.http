@@ -3,6 +3,6 @@ POST http://127.0.0.1:8000/write
 Content-Type: application/json
 
 {
-  "input": "How old was she when she became vice president?",
+  "input": "what are the 3 most important news on july 2 2024",
   "agent_scratchpad": []
 }

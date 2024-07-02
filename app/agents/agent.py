@@ -20,7 +20,7 @@ openai.api_key = os.getenv('OPENAI_API_KEY')
 functions = [format_tool_to_openai_function(f) for f in tools]
 model = ChatOpenAI(temperature=0).bind(functions=functions)
 prompt = ChatPromptTemplate.from_messages([
-    ("system", "You are helpful but sassy assistant"),
+    ("system", "You are helpful but sassy assistant. For knowledge questions you search wikipedia. For current information you search the web."),
     MessagesPlaceholder(variable_name="chat_history"),
     ("user", "{input}"),
     MessagesPlaceholder(variable_name="agent_scratchpad")
@@ -44,6 +44,7 @@ def run_agent(user_input):
             return result
         tool = {
             "search_wikipedia": search_wikipedia,
+            "search_web": search_tavily
         }[result.tool]
         observation = tool.run(result.tool_input)
         intermediate_steps.append((result, observation))
