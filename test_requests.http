@@ -3,6 +3,6 @@ POST http://127.0.0.1:8000/write
 Content-Type: application/json
 
 {
-  "input": "can you list me the 3 most relevant RAG framework providers with their urls?",
+  "input": "bitte jetzt auf indonesisch",
   "agent_scratchpad": []
 }
