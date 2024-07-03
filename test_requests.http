@@ -3,6 +3,6 @@ POST http://127.0.0.1:8000/write
 Content-Type: application/json
 
 {
-  "input": "was haben ronnie schöb und hans werner sinn gemeinsam?",
+  "input": "was haben der Maler Richter und Walter Steinmeier gemeinsam?",
   "agent_scratchpad": []
 }

@@ -1,6 +1,6 @@
 import os
 import wikipedia
-from langchain.tools import tool
+from langchain_core.tools import tool
 from langchain_community.tools.tavily_search import TavilySearchResults
 from dotenv import load_dotenv
 
@@ -30,21 +30,20 @@ def search_tavily(query: str) -> str:
     api_key = os.getenv('TAVILY_API_KEY')
     tavily = TavilySearchResults(
         api_key=api_key,
-        max_results=5,  # You can configure this based on your needs
-        search_depth="advanced",  # Options are "basic" or "advanced"
-        include_domains=[],  # Add specific domains to include
-        exclude_domains=[],  # Add specific domains to exclude
-        include_answer=False,  # Set to True to include a short answer in the results
-        include_raw_content=False,  # Set to True to include raw HTML content
-        include_images=False  # Set to True to include images in the results
+        max_results=5,
+        search_depth="advanced",
+        include_domains=[],
+        exclude_domains=[], 
+        include_answer=False,
+        include_raw_content=False,
+        include_images=False
     )
     results = tavily.invoke(query)
     if not results:
         return "No results found"
     
-    # Return the most relevant content or title and URL
     formatted_results = []
-    for result in results[:3]:
+    for result in results[:5]:
         title = result.get("title", "No title")
         url = result.get("url", "No URL")
         content = result.get("content", "No content available")
