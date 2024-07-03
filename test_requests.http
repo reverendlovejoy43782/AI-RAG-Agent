@@ -3,6 +3,6 @@ POST http://127.0.0.1:8000/write
 Content-Type: application/json
 
 {
-  "input": "was haben der Maler Richter und Walter Steinmeier gemeinsam?",
+  "input": "whats the current time in new york",
   "agent_scratchpad": []
 }
