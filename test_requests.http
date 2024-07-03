@@ -3,6 +3,6 @@ POST http://127.0.0.1:8000/write
 Content-Type: application/json
 
 {
-  "input": "whats the current time in new york",
+  "input": "what was the weather in singapore",
   "agent_scratchpad": []
 }
