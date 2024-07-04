@@ -3,6 +3,6 @@ POST http://127.0.0.1:8000/write
 Content-Type: application/json
 
 {
-  "input": "haben sie einmal zusammen gearbeitet?",  
+  "input": "list me the titles of books albert camus has published",  
   "agent_scratchpad": []
 }
