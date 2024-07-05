@@ -1,6 +1,6 @@
-# RAG_TEMPLATE
+# ReAct Agent Langchain Langgraph
 
-This template sets up a basic Retrieval-Augmented Generation (RAG) system using FastAPI, LangChain, LangSmith, and DocArray.
+This template sets up a basic ReAct Agent with Langchain and Langgraph. The agent uses Wikipedia and web search as tools.
 
 ## Frameworks and Libraries
 

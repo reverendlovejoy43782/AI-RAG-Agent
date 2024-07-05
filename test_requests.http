@@ -3,6 +3,5 @@ POST http://127.0.0.1:8000/write
 Content-Type: application/json
 
 {
-  "input": "Fasse in 5 sätzen zusammen, was am 3. Juli 2024 auf Twitter / X über Joe Biden gepostet wurde.",  
-  "agent_scratchpad": []
+  "input": "when was churchill born?"
 }
