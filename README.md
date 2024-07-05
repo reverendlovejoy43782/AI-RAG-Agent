@@ -7,7 +7,6 @@ This template sets up a basic Retrieval-Augmented Generation (RAG) system using 
 - **FastAPI**: A modern, fast (high-performance) web framework for building APIs with Python 3.6+ based on standard Python type hints.
 - **LangChain**: A framework for developing applications powered by language models.
 - **LangSmith**: A framework for fine-tuning and deploying language models.
-- **DocArray**: A library for working with multi-modal data, specifically for neural search.
 
 ## Code Structure
 
